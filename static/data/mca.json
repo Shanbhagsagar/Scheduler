@@ -1,0 +1,60 @@
+{
+  "MC19": {
+    "Semester": {
+      "4": {
+        "Subjects": {
+          "CG": "Pratik Desai",
+          "AWT": "Deepa Honrao",
+          "DMBI": "Sulakshana Vispute",
+          "AISC": "Rasika Mallya"
+        }
+      },
+      "5": {
+        "Subjects": {
+          "Python": "Sulakshana Vispute",
+          "ADC": "Apeksha Gaje",
+          "RPA": "Rasika Mallya",
+          "WMT": "Neha Ansari"
+        }
+      }
+    },
+    "Email": [
+      "sagarshanbhag09@gmail.com",
+      "thomasbenjohnson@gmail.com",
+      "kasturismitha05@gmail.com",
+      "shettymegha098@gmail.com"
+    ],
+    "Telegram": {
+      "Chat_Id": "-592983235"
+    }
+  },
+  "MC20": {
+    "Semester": {
+      "1": {
+        "Subjects": {
+          "BD": "Mariya Achary",
+          "Java": "Apeksha Gaje",
+          "ADBMS": "Sulakshana Vispute",
+          "SPM": "Rasika Mallya"
+        }
+      },
+      "2": {
+        "Subjects": {
+          "AI": "Pratik Desai",
+          "Maths": "Pritam Warke",
+          "SSD": "Renuka Sawant",
+          "ML": "Mariya Achary"
+        }
+      }
+    },
+    "Email": [
+      "sagarshanbhag09@gmail.com",
+      "thomasbenjohnson@gmail.com",
+      "kasturismitha05@gmail.com",
+      "shettymegha098@gmail.com"
+    ],
+    "Telegram": {
+      "Chat_Id": "-592983235"
+    }
+  }
+}

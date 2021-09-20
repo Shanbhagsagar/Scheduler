@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+</head>
+
+<body class="bg-image" style="
+      background-image: url(../static/images/bgimg.png);
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+    ">
+  <div class="
+        d-flex
+        flex-column
+        min-vh-100
+        justify-content-center
+        align-items-center
+      ">
+    <div class="card p-5 border-1">
+      <h1 class="text-center mb-3">Scheduler</h1>
+      <form action="#" method="post">
+        <div class="row mb-1">
+          <div class="col">
+            <label class="form-label">Batch</label>
+            <select class="form-select" id="batchName" name="batchName" required>
+              {% for batch in jsonData %}
+              <option value="{{batch}}">{{batch}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col">
+            <label class="form-label">Semester</label>
+            <select class="form-select" id="semName" name="semName" required>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col">
+            <label class="form-label">Subject</label>
+            <select class="form-select" id="subject" name="subject" required>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col">
+            <label class="form-label">Faculty Name</label>
+            <select class="form-select" id="facultyName" name="facultyName" required>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col">
+            <label class="form-label">Date</label>
+            <input type="date" name="lectDate" class="form-control" min="{{mDate}}" required />
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col">
+            <label class="form-label">From Time</label>
+            <input type="time" name="fromTime" class="form-control" placeholder="From Time (Ex: 9:00)" aria-label="Name"
+              required />
+          </div>
+          <div class="col">
+            <label class="form-label">From Time</label>
+            <input type="time" name="toTime" class="form-control" placeholder="To Time (Ex: 10:30)" aria-label="Name"
+              required />
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col">
+            <label class="form-label">Message</label>
+            <textarea type="text" name="message" class="form-control" placeholder="Message" aria-label="Message"
+              required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script>
+    var batches = ["MC19", "MC20"];
+
+    var Semester = {
+      MC19: ["Semester 4", "Semester 5"],
+      MC20: ["Semester 1", "Semester 2"],
+    };
+
+    var Subjects = {
+      "Semester 1": ["BD", "Java", "ADBMS", "SPM"],
+      "Semester 2": ["AI", "Maths", "SSD", "ML"],
+      "Semester 4": ["CG", "AWT", "DMBI", "AISC"],
+      "Semester 5": ["Python", "ADC", "RPA", "WMT"],
+    };
+
+    var teachers = {
+      BD: ["Maria Achary"],
+      Java: ["Apeksha Gaje"],
+      ADBMS: ["Sulakshana Vispute"],
+      SPM: ["Rasika Mallya"],
+
+      AI: ["Pratik Desai"],
+      Maths: ["Pritam Warke"],
+      SSD: ["Renuka Sawant"],
+      ML: ["Mariya Achary"],
+
+      CG: ["Pratik Desai"],
+      AWT: ["Deepa Honrao"],
+      DMBI: ["Sulakshana Vispute"],
+      AISC: ["Rasika Mallya"],
+
+      WMT: ["Neha Ansari"],
+      ADC: ["Apeksha Gaje"],
+      Python: ["Sulakshana Vispute"],
+      RPA: ["Rasika Mallya"],
+    };
+
+    var email = {
+      MC19: [
+        "sagarshanbhag09@gmail.com",
+        "thomasbenjohnson@gmail.com",
+        "kasturismitha05@gmail.com",
+        "shettymegha098@gmail.com",
+      ],
+      MC20: [
+        "sagarshanbhag09@gmail.com",
+        "thomasbenjohnson@gmail.com",
+        "kasturismitha05@gmail.com",
+        "shettymegha098@gmail.com",
+      ],
+    };
+
+    var telegram = {
+      MC19: ["ChatID"],
+      MC20: ["ChatID"],
+    };
+
+    var chatID = {
+      ChatID: ["-592983235"],
+    };
+
+      $("#batchName").change(function () {
+        $("#semName")
+          .find("option")
+          .remove()
+          .end();
+
+          $("#subject")
+          .find("option")
+          .remove()
+          .end()
+
+          $("#facultyName")
+          .find("option")
+          .remove()
+          .end();
+
+        $.each(Semester[$(this).val()], function (key, value) {
+          $("#semName").append(
+            $("<option></option>").attr("value", value).text(value)
+          );
+        });
+      });
+
+      $("#semName").change(function () {
+        $("#subject")
+          .find("option")
+          .remove()
+          .end();
+
+          $("#facultyName")
+          .find("option")
+          .remove()
+          .end();
+
+        $.each(Subjects[$(this).val()], function (key, value) {
+          $("#subject").append(
+            $("<option></option>").attr("value", value).text(value)
+          );
+        });
+      });
+
+      $("#subject").change(function () {
+        $("#facultyName")
+          .find("option")
+          .remove()
+          .end();
+
+        $.each(teachers[$(this).val()], function (key, value) {
+          $("#facultyName").append(
+            $("<option></option>").attr("value", value).text(value)
+          );
+        });
+      });
+
+  </script>
+</body>
+
+</html>
