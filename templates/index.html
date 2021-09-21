@@ -27,14 +27,13 @@
       ">
     <div class="card p-5 border-1">
       <h1 class="text-center mb-3">Scheduler</h1>
-      <form action="#" method="post">
+      <form action="/" method="post">
         <div class="row mb-1">
           <div class="col">
             <label class="form-label">Batch</label>
             <select class="form-select" id="batchName" name="batchName" required>
-              {% for batch in jsonData %}
-              <option value="{{batch}}">{{batch}}</option>
-              {% endfor %}
+              <option value="MC19">MC19</option>
+              <option value="MC20">MC20</option>
             </select>
           </div>
         </div>
@@ -84,8 +83,47 @@
               required></textarea>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
-      </form>
+        <button type="submit" name="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary mt-2">Submit</button>
+       </form>
+    </div>
+  </div>
+  <div class="modal fade in" id="scheduleModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Scheduler Confirmation</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body" style="word-wrap:break-word">
+          Batch Name : {{batchName}}<br/>
+          Semester : {{semName}}<br/>
+          Subject : {{subject}}<br/>
+          Faculty : {{facultyName}}<br/>
+          Lecture Date : {{lectDate}}<br/>
+          From {{fromTime}} To {{toTime}}<br/>
+          Message : {{message}}
+        </div>
+       
+        <div class="modal-footer">
+          <form action="/background_process_test" method="post">
+            <input type="text" name="batchName" id="batchName" value="{{batchName}}" hidden/>
+            <input type="text" name="semName" id="semName" value="{{semName}}" hidden/>
+            <input type="text" name="subject" id="subject" value="{{subject}}" hidden/>
+            <input type="text" name="facultyName" id="facultyName" value="{{facultyName}}" hidden/>
+            <input type="text" name="lectDate" id="lectDate" value="{{lectDate}}" hidden/>
+            <input type="text" name="fromTime" id="fromTime" value="{{fromTime}}" hidden/>
+            <input type="text" name="toTime" id="toTime" value="{{toTime}}" hidden/>
+            <input type="text" name="message" id="message" value="{{message}}" hidden/>
+          <button type="submit" name="submit" class="btn btn-primary">Set Schedule</button>
+        </form>
+        </div>
+      
+      </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -94,6 +132,11 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script>
+    compSet = '{{compSent}}'
+      if(compSet){
+        var myModal = new bootstrap.Modal(document.getElementById('scheduleModal'), {})
+        myModal.toggle()
+      }
     var batches = ["MC19", "MC20"];
 
     var Semester = {
@@ -208,7 +251,7 @@
         });
       });
 
-  </script>
+ </script>
 </body>
 
 </html>
