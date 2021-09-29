@@ -135,3 +135,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+secrets1.py
+client_secret1.json

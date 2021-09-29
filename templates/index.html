@@ -66,20 +66,20 @@
         </div>
         <div class="row mb-1">
           <div class="col">
-            <label class="form-label">From Time</label>
+            <label class="form-label">From</label>
             <input type="time" name="fromTime" class="form-control" placeholder="From Time (Ex: 9:00)" aria-label="Name"
               required />
           </div>
           <div class="col">
-            <label class="form-label">To Time</label>
+            <label class="form-label">To</label>
             <input type="time" name="toTime" class="form-control" placeholder="To Time (Ex: 10:30)" aria-label="Name"
               required />
-          </div> origin
+          </div> 
         </div>
         <div class="row mb-1">
           <div class="col">
-            <label class="form-label">Message</label>
-            <textarea type="text" name="message" class="form-control" placeholder="Message" aria-label="Message"
+            <label class="form-label">Link</label>
+            <textarea type="text" name="message" class="form-control" placeholder="Link" aria-label="Message"
               required></textarea>
           </div>
         </div>
@@ -132,7 +132,8 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script>
-    compSet = '{{compSent}}'
+  
+  compSet = '{{compSent}}'
       if(compSet){
         var myModal = new bootstrap.Modal(document.getElementById('scheduleModal'), {})
         myModal.toggle()
@@ -152,49 +153,25 @@
     };
 
     var teachers = {
-      BD: ["Maria Achary"],
-      Java: ["Apeksha Gaje"],
-      ADBMS: ["Sulakshana Vispute"],
-      SPM: ["Rasika Mallya"],
+      BD: ["Mrs.Maria Achary"],
+      Java: ["Mrs.Apeksha Gaje"],
+      ADBMS: ["Mrs.Sulakshana Vispute"],
+      SPM: ["Mrs.Rasika Mallya"],
 
-      AI: ["Pratik Desai"],
-      Maths: ["Pritam Warke"],
-      SSD: ["Renuka Sawant"],
-      ML: ["Mariya Achary"],
+      AI: ["Mr.Pratik Desai"],
+      Maths: ["Mr.Pritam Warke"],
+      SSD: ["Mrs.Renuka Sawant"],
+      ML: ["Mrs.Mariya Achary"],
 
-      CG: ["Pratik Desai"],
-      AWT: ["Deepa Honrao"],
-      DMBI: ["Sulakshana Vispute"],
-      AISC: ["Rasika Mallya"],
+      CG: ["Mr.Pratik Desai"],
+      AWT: ["Mrs.Deepa Honrao"],
+      DMBI: ["Mrs.Sulakshana Vispute"],
+      AISC: ["Mrs.Rasika Mallya"],
 
-      WMT: ["Neha Ansari"],
-      ADC: ["Apeksha Gaje"],
-      Python: ["Sulakshana Vispute"],
-      RPA: ["Rasika Mallya"],
-    };
-
-    var email = {
-      MC19: [
-        "sagarshanbhag09@gmail.com",
-        "thomasbenjohnson@gmail.com",
-        "kasturismitha05@gmail.com",
-        "shettymegha098@gmail.com",
-      ],
-      MC20: [
-        "sagarshanbhag09@gmail.com",
-        "thomasbenjohnson@gmail.com",
-        "kasturismitha05@gmail.com",
-        "shettymegha098@gmail.com",
-      ],
-    };
-
-    var telegram = {
-      MC19: ["ChatID"],
-      MC20: ["ChatID"],
-    };
-
-    var chatID = {
-      ChatID: ["-592983235"],
+      WMT: ["Mrs.Neha Ansari"],
+      ADC: ["Mrs.Apeksha Gaje"],
+      Python: ["Mrs.Sulakshana Vispute"],
+      RPA: ["Mrs.Rasika Mallya"],
     };
 
       $("#batchName").change(function () {
@@ -251,7 +228,6 @@
         });
       });
 
- </script>
+  </script> 
 </body>
-
 </html>
